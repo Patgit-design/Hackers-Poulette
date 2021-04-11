@@ -20,7 +20,7 @@ try {
     // $mail->Username   = 'patricia.corduant@gmail.com';                     // SMTP username
     //$mail->Password   = 'liberty2000';                               // SMTP password
     //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = 8888;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+    $mail->Port       = 25;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
     $mail->setFrom('patricia.corduant@gmail.com', 'Mailer');
@@ -141,7 +141,7 @@ echo "<pre/>";
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
     <title>Hackers Poulette</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -151,36 +151,45 @@ echo "<pre/>";
     <link type="text/css" rel="stylesheet" href="./asset/style.css">
 </head>
 
-<header style="background-color:#3F3F3F" class="container-fluid mt-2">
-    <h2 class="d-block p-2  text-white  " style="background-color:#02A6BC">Contact</h2>
+<header style="background-color:#0d8187" class="container-fluid mt-2">
 
-    <img src="./asset/logo.png" alt="Hackers's poulette logo" class="rounded mx-auto d-inline p-4" />
-    <h3 class="d-inline p-2  text-white" style="background-color:#02A6BC"><strong>Please fill in your
-            information</strong></h3>
-    <h3 class="d-block p-2  text-white text-center" style="background-color:#02A6BC"><strong>and we'll answer ASAP
-            !</strong></h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="./asset/hackers-poulette-logo.png" width="120" height="100" alt="">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Home</a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link active" href="#">Contact <span class="sr-only"></span></span></a>
+        </div>
+    </nav>
+
 </header>
 
+<body style="background-color:#303030">
+    <div class="container-fluid mx-auto ">
+        <img src=" ./asset/hackers-poulette-logo.png" alt="Hackers's poulette logo" width="350" height="300" />
+    </div>
 
-<body style="background-color:rgba(66, 66, 66, 0.74)">
-
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-2 row justify-content-center mx-auto">
+        <h3 class="d-inline p-2 m-1  text-white" style="background-color:#0d8187"><strong>Please fill in your
+                information and we'll answer ASAP
+                !</strong></h3>
 
         <!-- Le form -->
 
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" role="form">
-            <div class="form-group">
+            <div class="form-group ">
                 <div class="row">
 
-                    <div class="col-md-4">
-                        <label for="lastname">Last Name<span class="error">
+                    <div class="col-md-4 text-white">
+                        <label for="lastname">Last Name<span class=" error">
                                 <?php echo $erreur_lastname; ?></span></label>
                         <input id="lastname" class="form-control" type="text" name="lastname"
                             placeholder="Please enter your last name" required>
                         <!--       <p class="comments"><?php// echo $erreur_lastname;// ?></p> -->
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-white">
                         <label for="firstname">First Name<span class="error"> *
                                 <?php echo $erreur_firstname; ?></span></label>
                         <input id="firstname" class="form-control" type="text" name="firstname"
@@ -194,14 +203,14 @@ echo "<pre/>";
             <div class="form-group">
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-white">
                         <label for="mail">Mail<span class="error"> *
                                 <?php echo $erreur_mail; ?></span></label>
                         <input id="mail" class="form-control" type="email" name="mail" placeholder="example@mail.com"
                             required>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-white">
                         <label for="country">Country<span class="error"> *
                                 <?php echo $erreur_country; ?></span></label>
                         <input id="country" class="form-control" type="text" name="country" placeholder="Your country"
@@ -213,7 +222,7 @@ echo "<pre/>";
             <div class=" form-group">
                 <div class="row">
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 text-white">
                         <label for="message">Subject of your message </label>
                         <select class="form-control" name="selection">
                             <option selected>Open this select menu</option>
@@ -225,13 +234,13 @@ echo "<pre/>";
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-5 text-white">
                     <label for="Textarea" class="form-label">Your message<span class="error"> *
                             <?php echo $erreur_message; ?></span></label>
                     <textarea class="form-control" rows="5" name="message"></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group text-white">
                     <label>Gender</label>
                     <div class="form-row">
                         <div class="custom-control custom-control-inline custom-radio">
@@ -247,7 +256,7 @@ echo "<pre/>";
                     </div>
                 </div>
 
-                <input class="btn text-white" type="submit" value="submit" style="background-color:#02A6BC"
+                <input class="btn text-white" type="submit" value="submit" style="background-color:#0d8187"
                     class="btn btn-success validate formulaire" />
 
         </form>
