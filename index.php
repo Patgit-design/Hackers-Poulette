@@ -186,7 +186,7 @@ echo "<pre/>";
                                 <?php echo $erreur_lastname; ?></span></label>
                         <input id="lastname" class="form-control" type="text" name="lastname"
                             placeholder="Please enter your last name" required>
-                        <!--       <p class="comments"><?php// echo $erreur_lastname;// ?></p> -->
+
                     </div>
 
                     <div class="col-md-4 text-white">
