@@ -193,78 +193,77 @@ echo "<pre/>";
                                 <?php echo $erreur_lastname; ?></span></label>
                         <input id="lastname" class="form-control" type="text" name="lastname"
                             placeholder="Please enter your last name" required>
-                        <!--       <p class="comments"><?php// echo $erreur_lastname;// ?></p> -->
-                    </div>
 
-                    <div class="col-md-4 text-white">
-                        <label for="firstname">First Name<span class="error"> *
-                                <?php echo $erreur_firstname; ?></span></label>
-                        <input id="firstname" class="form-control" type="text" name="firstname"
-                            placeholder="Please enter your first name" required>
-                        <!--      <p class="comments"><?php //echo $erreur_firstname; 
-                                                        ?></p> -->
-                    </div>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <div class="row">
-
-                    <div class="col-md-4 text-white">
-                        <label for="mail">Mail<span class="error"> *
-                                <?php echo $erreur_mail; ?></span></label>
-                        <input id="mail" class="form-control" type="email" name="mail" placeholder="example@mail.com"
-                            required>
-                    </div>
-
-                    <div class="col-md-4 text-white">
-                        <label for="country">Country<span class="error"> *
-                                <?php echo $erreur_country; ?></span></label>
-                        <input id="country" class="form-control" type="text" name="country" placeholder="Your country"
-                            required>
-                    </div>
-                </div>
-            </div>
-
-            <div class=" form-group">
-                <div class="row">
-
-                    <div class="col-md-3 text-white">
-                        <label for="message">Subject of your message </label>
-                        <select class="form-control" name="selection">
-                            <option selected>Open this select menu</option>
-                            <option value="website">Our Website</option>
-                            <option value="technical">Technical support</option>
-                            <option value="SAV">After Sale</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-5 text-white">
-                    <label for="Textarea" class="form-label">Your message<span class="error"> *
-                            <?php echo $erreur_message; ?></span></label>
-                    <textarea class="form-control" rows="5" name="message"></textarea>
-                </div>
-
-                <div class="form-group text-white">
-                    <label>Gender</label>
-                    <div class="form-row">
-                        <div class="custom-control custom-control-inline custom-radio">
-                            <input type="radio" class="custom-control-input" name="gender" value="male" checked>
-                            <label class="custom-control-label" for="radio1">Male<span class="error"> *
-                                    <?php echo $erreur_gender; ?></span></label>
-                        </div>
-                        <div class="custom-control custom-control-inline custom-radio">
-                            <input type="radio" class="custom-control-input" name="gender" value="female" checked>
-                            <label class="custom-control-label" for="radio2">Female<span class="error"> *
-                                    <?php echo $erreur_gender; ?></span></label>
+                        <div class="col-md-4 text-white">
+                            <label for="firstname">First Name<span class="error"> *
+                                    <?php echo $erreur_firstname; ?></span></label>
+                            <input id="firstname" class="form-control" type="text" name="firstname"
+                                placeholder="Please enter your first name" required>
+                            <!--      <p class="comments"><?php //echo $erreur_firstname; 
+                                                            ?></p> -->
                         </div>
                     </div>
                 </div>
 
-                <input class="btn text-white" type="submit" value="submit" style="background-color:#0d8187"
-                    class="btn btn-success validate formulaire" />
+                <div class="form-group">
+                    <div class="row">
+
+                        <div class="col-md-4 text-white">
+                            <label for="mail">Mail<span class="error"> *
+                                    <?php echo $erreur_mail; ?></span></label>
+                            <input id="mail" class="form-control" type="email" name="mail"
+                                placeholder="example@mail.com" required>
+                        </div>
+
+                        <div class="col-md-4 text-white">
+                            <label for="country">Country<span class="error"> *
+                                    <?php echo $erreur_country; ?></span></label>
+                            <input id="country" class="form-control" type="text" name="country"
+                                placeholder="Your country" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" form-group">
+                    <div class="row">
+
+                        <div class="col-md-3 text-white">
+                            <label for="message">Subject of your message </label>
+                            <select class="form-control" name="selection">
+                                <option selected>Open this select menu</option>
+                                <option value="website">Our Website</option>
+                                <option value="technical">Technical support</option>
+                                <option value="SAV">After Sale</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 text-white">
+                        <label for="Textarea" class="form-label">Your message<span class="error"> *
+                                <?php echo $erreur_message; ?></span></label>
+                        <textarea class="form-control" rows="5" name="message"></textarea>
+                    </div>
+
+                    <div class="form-group text-white">
+                        <label>Gender</label>
+                        <div class="form-row">
+                            <div class="custom-control custom-control-inline custom-radio">
+                                <input type="radio" class="custom-control-input" name="gender" value="male" checked>
+                                <label class="custom-control-label" for="radio1">Male<span class="error"> *
+                                        <?php echo $erreur_gender; ?></span></label>
+                            </div>
+                            <div class="custom-control custom-control-inline custom-radio">
+                                <input type="radio" class="custom-control-input" name="gender" value="female" checked>
+                                <label class="custom-control-label" for="radio2">Female<span class="error"> *
+                                        <?php echo $erreur_gender; ?></span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input class="btn text-white" type="submit" value="submit" style="background-color:#0d8187"
+                        class="btn btn-success validate formulaire" />
 
         </form>
     </div>
