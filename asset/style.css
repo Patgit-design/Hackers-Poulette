@@ -2,3 +2,13 @@
     font-family: "Bellota";
     src: url("../asset/Bellota-Regular.woff") format("woff");
 }
+
+h2,
+h3 {
+    font-family: "Bellota";
+    font-size: 1.8em;
+}
+
+label {
+    font-family: "Bellota";
+}

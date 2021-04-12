@@ -141,14 +141,21 @@ echo "<pre/>";
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Hackers Poulette</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
-    <link type="text/css" rel="stylesheet" href="./asset/style.css">
+    <link type="text/css" rel="stylesheet" href="../Hackers-Poulette/asset/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Bellota' rel='stylesheet'>
+    <style>
+    body {
+        font-family: 'Bellota';
+        font-size: 1em;
+    }
+    </style>
 </head>
 
 <header style="background-color:#0d8187" class="container-fluid mt-2">
@@ -166,8 +173,8 @@ echo "<pre/>";
 </header>
 
 <body style="background-color:#303030">
-    <div class="container-fluid mx-auto ">
-        <img src=" ./asset/hackers-poulette-logo.png" alt="Hackers's poulette logo" width="350" height="300" />
+    <div class="container-fluid  ">
+        <img src="./asset/hackers-poulette-logo.png" alt="Hackers's poulette logo" width="350" height="300" />
     </div>
 
     <div class="container-fluid mt-2 row justify-content-center mx-auto">
@@ -186,7 +193,7 @@ echo "<pre/>";
                                 <?php echo $erreur_lastname; ?></span></label>
                         <input id="lastname" class="form-control" type="text" name="lastname"
                             placeholder="Please enter your last name" required>
-
+                        <!--       <p class="comments"><?php// echo $erreur_lastname;// ?></p> -->
                     </div>
 
                     <div class="col-md-4 text-white">
