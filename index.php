@@ -1,52 +1,5 @@
 <?php
-/*
-use PHPMailer\PHPMailer\PHPMailer;
-//use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require('PHPMailer-master/src/PHPMailer.php');
-require('PHPMailer-master/src/SMTP.php');
-require('PHPMailer-master/src/Exception.php');
-
-$mail = new PHPMailer(true);
-
-try {
-    //Server settings
-    // $mail->SMTPDebug =
-    //   SMTP::DEBUG_SERVER;                   // Enable verbose debug output
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'localhost';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = false;                                   // Enable SMTP authentication
-    // $mail->Username   = 'patricia.corduant@gmail.com';                     // SMTP username
-    //$mail->Password   = 'liberty2000';                               // SMTP password
-    //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = 25;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-    //Recipients
-    $mail->setFrom('patricia.corduant@gmail.com', 'Mailer');
-    $mail->addAddress('patricia.corduant@gmail.com');     // Add a recipient
-    // $mail->addAddress('ellen@example.com');               // Name is optional
-    // $mail->addReplyTo('info@example.com', 'Information');
-    // $mail->addCC('cc@example.com');
-    // $mail->addBCC('bcc@example.com');
-
-    // Attachments
-    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Customer service of Hackers poulette';
-    $mail->Body    = 'Your request is in treatment';
-    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
-*/
-
+include('mailer.php');
 //variables
 $erreur_lastname = $erreur_firstname =  $erreur_message =  $erreur_gender =  $erreur_country = $erreur_mail = "";
 $lastname = $firstname = $email = $message = $gender = $country = "";
@@ -78,16 +31,10 @@ function secu($data)
 @$gender = secu($_POST["gender"]);
 @$country = $_POST["country"];
 
-/*
-    $lastname = $_POST["lastname"];
-    $firstname = $_POST["firstname"];
-    $email = $_POST["mail"];
-    $message = $_POST["message"];
-    $gender = $_POST["gender"];
-    $country = $_POST["country"];*/
 
 
-if (isset($_POST['submit'])) {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST["lastname"])) {
         $erreur_lastname = "This field is required";
@@ -127,11 +74,9 @@ if (isset($_POST['submit'])) {
         $email = secu($_POST["mail"]);
     }
 }
-/*
-echo "<pre>";
-print_r($user);
-echo "<pre/>";
-*/
+
+
+
 ?>
 
 
@@ -148,12 +93,16 @@ echo "<pre/>";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
-    <link type="text/css" rel="stylesheet" href="../Hackers-Poulette/asset/style.css">
+
     <link href='https://fonts.googleapis.com/css?family=Bellota' rel='stylesheet'>
     <style>
     body {
         font-family: 'Bellota';
         font-size: 1em;
+    }
+
+    .error {
+        color: #f54d05;
     }
     </style>
 </head>
@@ -178,31 +127,33 @@ echo "<pre/>";
     </div>
 
     <div class="container-fluid mt-2 row justify-content-center mx-auto">
-        <h3 class="d-inline p-2 m-1  text-white" style="background-color:#0d8187"><strong>Please fill in your
-                information and we'll answer ASAP
-                !</strong></h3>
+        <h3 class="d-inline p-2 m-1  text-white" style="background-color:#0d8187">
+            <strong>Please fill in your information and we'll answer ASAP !</strong>
+        </h3>
 
         <!-- Le form -->
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" role="form">
+        <p><span class="error">* required field.</span></p>
+
+        <form method="post" action="<?php
+                                    echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group ">
                 <div class="row">
 
                     <div class="col-md-4 text-white">
-                        <label for="lastname">Last Name<span class=" error">
-                                <?php echo $erreur_lastname; ?></span></label>
+                        <label for="lastname">Last Name
+                            <span class=" error">* <?php echo $erreur_lastname; ?></span>
+                        </label>
                         <input id="lastname" class="form-control" type="text" name="lastname"
                             placeholder="Please enter your last name" required>
+                    </div>
 
-
-                        <div class="col-md-4 text-white">
-                            <label for="firstname">First Name<span class="error"> *
-                                    <?php echo $erreur_firstname; ?></span></label>
-                            <input id="firstname" class="form-control" type="text" name="firstname"
-                                placeholder="Please enter your first name" required>
-                            <!--      <p class="comments"><?php //echo $erreur_firstname; 
-                                                            ?></p> -->
-                        </div>
+                    <div class="col-md-4 text-white">
+                        <label for="firstname">First Name
+                            <span class="error"> *<?php echo $erreur_firstname; ?></span>
+                        </label>
+                        <input id="firstname" class="form-control" type="text" name="firstname"
+                            placeholder="Please enter your first name" required>
                     </div>
                 </div>
 
@@ -210,15 +161,18 @@ echo "<pre/>";
                     <div class="row">
 
                         <div class="col-md-4 text-white">
-                            <label for="mail">Mail<span class="error"> *
-                                    <?php echo $erreur_mail; ?></span></label>
+                            <label for="mail">Mail
+                                <span class="error"> *
+                                    <?php echo $erreur_mail; ?></span>
+                            </label>
                             <input id="mail" class="form-control" type="email" name="mail"
                                 placeholder="example@mail.com" required>
                         </div>
 
                         <div class="col-md-4 text-white">
                             <label for="country">Country<span class="error"> *
-                                    <?php echo $erreur_country; ?></span></label>
+                                    <?php echo $erreur_country; ?></span>
+                            </label>
                             <input id="country" class="form-control" type="text" name="country"
                                 placeholder="Your country" required>
                         </div>
@@ -242,7 +196,8 @@ echo "<pre/>";
 
                     <div class="col-md-5 text-white">
                         <label for="Textarea" class="form-label">Your message<span class="error"> *
-                                <?php echo $erreur_message; ?></span></label>
+                                <?php echo $erreur_message; ?></span>
+                        </label>
                         <textarea class="form-control" rows="5" name="message"></textarea>
                     </div>
 
@@ -266,6 +221,28 @@ echo "<pre/>";
                         class="btn btn-success validate formulaire" />
 
         </form>
+    </div>
+    <div class="text-white">
+        <?php
+        echo "<h2>Your given values are as:</h2>";
+        echo $lastname;
+        echo "<br>";
+
+        echo $firstname;
+        echo "<br>";
+
+        echo $email;
+        echo "<br>";
+
+        echo $message;
+        echo "<br>";
+
+        echo $gender;
+        echo "<br>";
+
+        echo $country;
+
+        ?>
     </div>
 
 
